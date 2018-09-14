@@ -11,7 +11,8 @@ const type = [
     'name',
     'date',
     'time',
-    'location'
+    'location',
+    'host'
 ]
 
 const originalState = {
@@ -19,6 +20,7 @@ const originalState = {
     date:'',
     time:'',
     location:'',
+    host:'',
     description:'' // need specialized
 }
 

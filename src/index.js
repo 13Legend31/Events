@@ -12,6 +12,7 @@ const store = createStore(
     Reducer,
     {
         events:[] // [{},{},{},{},{}] { date: date, events: [] } dont convert to date or time
+        // [date][time]
     }
 )
 
