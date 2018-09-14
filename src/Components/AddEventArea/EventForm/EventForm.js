@@ -10,7 +10,8 @@ import { events } from '../../../Redux/Constants'
 const type = [
     'name',
     'date',
-    'time',
+    'startTime',
+    'endTime',
     'location',
     'host'
 ]
@@ -18,10 +19,21 @@ const type = [
 const originalState = {
     name:'',
     date:'',
-    time:'',
+    startTime:'',
+    endTime:'',
     location:'',
     host:'',
     description:'' // need specialized
+}
+
+const lengths = {
+    name:70,
+    date:20,
+    startTime:20,
+    endTime:20,
+    location:50,
+    host:20,
+    description:500
 }
 
 class EventForm extends Component {
@@ -31,41 +43,58 @@ class EventForm extends Component {
 
     ModifyDetails = (key, value) => {
         const state = this.state
-        if (value.length < 1000) {
+        if (value.length < lengths[key]) {
             state[key] = value
             this.setState(state)
         }
     }
 
     AddEvent = () => {
+        // validate date, times
         const eventDetails = this.state
-        Insert(this.props.events, eventDetails)
-        this.setState({...originalState})
-        this.props.Action([...this.props.events], events)
+        if (!eventDetails.date) {
+            alert('Invalid Date!')
+        } else if (!eventDetails.startTime || !eventDetails.endTime) {
+            alert('Invalid Times!')
+        } else {
+            Insert(this.props.events, eventDetails)
+            this.setState({...originalState})
+            this.props.Action([...this.props.events], events)
+        }
     }
 
     render() {
+        const todayDate = new Date()
+        const year = todayDate.getFullYear()
+        const month = todayDate.getMonth() + 1 < 10 ? `0${todayDate.getMonth() + 1}` : todayDate.getMonth() + 1
+        const date = todayDate.getDate() < 10 ? `0${todayDate.getDate()}` : todayDate.getDate()
         return (
             <section className='eventForm'>
                 {type.map((type) => {
                     let inputType = 'text'
                     if (type === 'date') {
                         inputType = 'date'
-                    } else if (type === 'time') {
+                    } else if (type === 'startTime' || type === 'endTime') {
                         inputType = 'time'
                     }
                     return (
-                        <input
-                            key={type}
-                            className='eventFormInput'
-                            placeholder={type}
-                            type={inputType}
-                            value={this.state[type]}
-                            onChange={(e) => this.ModifyDetails(type, e.target.value)}
-                        />
+                        <React.Fragment key={type}>
+                            {(type === 'startTime' || type === 'endTime') &&
+                                <div>{type === 'startTime' ? 'Start Time' : 'End Time'}</div>
+                            }
+                            <input
+                                key={type}
+                                className='eventFormInput'
+                                placeholder={type[0].toUpperCase() + type.substring(1)}
+                                type={inputType}
+                                value={this.state[type]}
+                                min={`${year}-${month}-${date}`}
+                                onChange={(e) => this.ModifyDetails(type, e.target.value)}
+                            />
+                        </React.Fragment>
                     )
                 })}
-                <textarea 
+                <textarea
                     className='eventFormDescription'
                     value={this.state.description}
                     placeholder='Description'

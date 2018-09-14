@@ -25,7 +25,7 @@ function LessThan(time1, time2) {
 
 function Insert(dataStructure, event) {
     const date = event.date
-    const time = event.time
+    const startTime = event.startTime
     // date
     let i = 0
     for (i = 0; i < dataStructure.length && new Date(dataStructure[i].date) < new Date(date); i++);
@@ -34,7 +34,7 @@ function Insert(dataStructure, event) {
     }
     // time
     let j = 0
-    for (j; j < dataStructure[i].events.length && LessThan(dataStructure[i].events[j].time, time); j++);
+    for (j; j < dataStructure[i].events.length && LessThan(dataStructure[i].events[j].startTime, startTime); j++);
     dataStructure[i].events.splice(j, 0, event)
 }
 

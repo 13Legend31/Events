@@ -23,17 +23,16 @@ class Events extends Component {
                     >
                         <div className='eventListDate'>{`${day}, ${month} ${dateNum}`}</div>
                         <div className='eventWrapper'>
-                            {events.map(({ name, date, time, location, description }, j) =>
+                            {events.map(({ name, startTime, endTime, location }, j) =>
                                 <Event
                                     key={j}
                                     i={i}
                                     j={j}
                                     name={name}
-                                    date={date}
-                                    time={time}
+                                    startTime={startTime}
+                                    endTime={endTime}
                                     location={location}
-                                    description={description}
-                                />
+                                    />
                             )}
                         </div>
                     </div>

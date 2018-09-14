@@ -3,14 +3,13 @@ import './Event.css'
 
 class Event extends PureComponent {
     render() {
-        const { name, date, time, location, description } = this.props
+        const { name, startTime, endTime, location } = this.props
         return (
             <section className='event'>
-                <div>{name}</div>
-                <div>{date}</div>
-                <div>{time}</div>
-                <div>{location}</div>
-                <div>{description}</div>
+                <div className='eventName'>{name}</div>
+                <div className='eventLocation'>{location}</div>
+                <div className='eventTimes'>{`${startTime} - ${endTime}`}</div>
+                <button className='eventDetails'>Details</button>
             </section>
         );
     }
