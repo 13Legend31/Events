@@ -10,7 +10,6 @@ class Nav extends Component {
                 <div className='navClickableLogoWrapper'>
                     <ClickableLogo/>
                 </div>
-                <div className='navBackground'/>
             </section>
         );
     }
