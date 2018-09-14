@@ -1,0 +1,31 @@
+.iconBar {
+    margin-top:50px;
+    margin-bottom:15px;
+    width:100%;
+    height:30px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.iconBar > button {
+    margin-left:5px;
+    margin-right:5px;
+    width:25px;
+    height:25px;
+    background-size: cover;
+    background-position: center;
+    transition:0.5s;
+    opacity:0.5;
+}
+.iconBar > button:hover {
+    opacity:1;
+}
+.instagram {
+    background:url('./Pictures/Instagram.png')
+}
+.facebook {
+    background:url('./Pictures/Facebook.png')
+}
+.twitter {
+    background:url('./Pictures/Twitter.png')
+}

@@ -3,6 +3,8 @@
     width:100%;
     height:70px;
     background:#FFD78E;
+    box-sizing:border-box;
+    border-bottom:1px solid #E2E2E2;
 }
 .navClickableLogoWrapper {
     width:100%;
