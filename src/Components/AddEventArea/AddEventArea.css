@@ -1,0 +1,29 @@
+.addEventArea {
+    width:100%;
+    padding-top:15px;
+    padding-bottom:15px;
+    display:flex;
+    flex-direction:column;
+}
+.addEventButtonWrapper {
+    width:100%;
+}
+.addEventButton {
+    box-sizing:border-box;
+    border:1px solid black;
+    border-radius:50%;
+    height:50px;
+    width:50px;
+    background:transparent;
+    font-size: 30px;
+    margin-left:30px;
+    user-select: none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.eventFormWrapper {
+    width:100%;
+    display: flex;
+    justify-content: center;
+}

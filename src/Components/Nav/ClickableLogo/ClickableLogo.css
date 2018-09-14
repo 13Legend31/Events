@@ -1,0 +1,17 @@
+.clickableLogo {
+    display:flex;
+    align-items: center;
+    cursor:pointer;
+    height:70px;
+}
+.momentifyIcon {
+    width:60px;
+    height:60px;
+    background-image: url('./momentify.png');
+    background-position:center;
+    background-size:cover;
+    border-radius:50%;
+}
+.momentifyTitle {
+    font-family: sans-serif;
+}
