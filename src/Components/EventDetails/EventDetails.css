@@ -5,8 +5,25 @@
 }
 .detailedInfoWrapper {
     margin-top:70px;
-    width:500px;
-    height:700px;
+    width:700px;
     box-sizing:border-box;
     border:1px solid grey;
+    display:flex;
+    flex-direction: column;
+}
+.detailedInfoWrapper > div {
+    width:100%;
+}
+.eventDetailsDate {
+    justify-content: flex-start;
+    padding-left:20px;
+    margin-top:10px;
+}
+.eventDetailsName {
+    display:flex;
+    justify-content: center;
+    font-family: sans-serif;
+    font-size:32px;
+    font-weight:600;
+    margin-top:25px;
 }

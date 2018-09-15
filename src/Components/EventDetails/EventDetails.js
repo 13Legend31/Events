@@ -4,30 +4,51 @@ import { connect } from 'react-redux'
 import './EventDetails.css'
 
 import Action from '../../Redux/Action'
+import Conversion from '../../Algorithms/Date/24HourTo12'
 
-class EventDetails extends Component {
-    state = {
-        details:null
-    }
-    
+/* 
+date
+name
+startTime - endTime
+host
+location
+*/
+
+class EventDetails extends Component {    
     componentDidMount = () => {
+        window.scrollTo(0, 0)
         const path = this.props.history.location.pathname
         const nodes = path.split('/')
         const i = parseInt(nodes[1], 10)
         const j = parseInt(nodes[2], 10)
         const { events } = this.props
-        if (events[i] && events[i].events[j]) {
-            this.setState({
-                details: events[i].events[j]
-            })
+        const exist = events[i] && events[i].events[j]
+        if (!exist) {
+            this.props.history.push('/')
         }
     }
 
     render() {
+        const { events } = this.props
+        const path = this.props.history.location.pathname
+        const nodes = path.split('/')
+        const i = parseInt(nodes[1], 10)
+        const j = parseInt(nodes[2], 10)
+        
+        let details = (events[i] && events[i].events[j]) ? events[i].events[j] : null
         return (
             <section className='eventDetailedInfo'>
                 <div className='detailedInfoWrapper'>
-
+                {details &&
+                    <React.Fragment>
+                        <div className='eventDetailsDate'>{details.date}</div>
+                        <div className='eventDetailsName'>{details.name}</div>
+                        <div className='eventDetailsHost'>{`Hosted by ${details.host}`}</div>
+                        <div className='eventDetailsLocation'>{details.location}</div>
+                        <div className='eventDetailsTime'>{`${Conversion(details.startTime)} - ${Conversion(details.endTime)}`}</div>
+                        <div className='eventDescription'>{details.description}</div>
+                    </React.Fragment>
+                }
                 </div>
             </section>
         );
