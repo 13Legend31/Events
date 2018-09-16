@@ -56,6 +56,8 @@ class EventForm extends Component {
             alert('Invalid Date!')
         } else if (!eventDetails.startTime || !eventDetails.endTime) {
             alert('Invalid Times!')
+        } else if (!eventDetails.name) {
+            alert('Name Cannot Be Empty!')
         } else {
             Insert(this.props.events, eventDetails)
             this.setState({...originalState})

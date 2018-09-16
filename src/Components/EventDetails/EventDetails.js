@@ -6,6 +6,9 @@ import './EventDetails.css'
 import Action from '../../Redux/Action'
 import Conversion from '../../Algorithms/Date/24HourTo12'
 
+import MakeDate from '../../Algorithms/Date/MakeDate'
+import ReadableDate from '../../Algorithms/Date/ReadableDate'
+
 /* 
 date
 name
@@ -17,15 +20,6 @@ location
 class EventDetails extends Component {    
     componentDidMount = () => {
         window.scrollTo(0, 0)
-        const path = this.props.history.location.pathname
-        const nodes = path.split('/')
-        const i = parseInt(nodes[1], 10)
-        const j = parseInt(nodes[2], 10)
-        const { events } = this.props
-        const exist = events[i] && events[i].events[j]
-        if (!exist) {
-            this.props.history.push('/')
-        }
     }
 
     render() {
@@ -36,12 +30,17 @@ class EventDetails extends Component {
         const j = parseInt(nodes[2], 10)
         
         let details = (events[i] && events[i].events[j]) ? events[i].events[j] : null
+        let readableDate
+        if (details) {
+            const d = MakeDate(details.date)
+            readableDate = ReadableDate(d)
+        }
         return (
             <section className='eventDetailedInfo'>
                 <div className='detailedInfoWrapper'>
                 {details &&
                     <React.Fragment>
-                        <div className='eventDetailsDate'>{details.date}</div>
+                        <div className='eventDetailsDate'>{readableDate}</div>
                         <div className='eventDetailsName'>{details.name}</div>
                         <div className='eventDetailsHost'>{`Hosted by ${details.host}`}</div>
                         <div className='eventDetailsLocation'>{details.location}</div>

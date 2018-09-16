@@ -1,3 +1,9 @@
+.eventDetailsDate {
+    color:orangered;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight:600;
+}
 .eventDetailedInfo {
     display:flex;
     justify-content: center;
@@ -23,7 +29,37 @@
     display:flex;
     justify-content: center;
     font-family: sans-serif;
+    flex-wrap:wrap;
+    word-break: break-word;
     font-size:32px;
     font-weight:600;
     margin-top:25px;
+}
+.eventDetailsHost {
+    display:flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:4px;
+}
+.eventDetailsLocation {
+    display:flex;
+    justify-content: center;
+    font-family: sans-serif;
+    flex-wrap:wrap;
+    word-break: break-word;
+    font-size:40px;
+    margin-top:100px;
+}
+.eventDetailsTime {
+    display:flex;
+    justify-content: center;
+    font-family: sans-serif;
+}
+.eventDescription {
+    display:flex;
+    justify-content: center;
+    font-family: sans-serif;
+    flex-wrap:wrap;
+    word-break: break-word;
+    margin-top:50px;
 }
