@@ -9,7 +9,7 @@ import Conversion from '../../Algorithms/Date/24HourTo12'
 import MakeDate from '../../Algorithms/Date/MakeDate'
 import ReadableDate from '../../Algorithms/Date/ReadableDate'
 
-/* 
+/*
 date
 name
 startTime - endTime

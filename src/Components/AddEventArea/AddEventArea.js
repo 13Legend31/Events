@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './AddEventArea.css'
 
 import EventForm from './EventForm/EventForm'
+import SaveEvents from './SaveEvents/SaveEvents'
 
 class AddEventArea extends Component {
     state = {
@@ -31,6 +32,7 @@ class AddEventArea extends Component {
                         <EventForm/>
                     </div>
                 }
+                <SaveEvents/>
             </section>
         );
     }

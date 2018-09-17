@@ -1,0 +1,22 @@
+.saveEvents {
+    display:flex;
+    justify-content: center;
+}
+.saveAllEventsButton {
+    margin-top:20px;
+    font-family:sans-serif;
+    font-size:16px;
+    padding:10px;
+    box-sizing:border-box;
+    border:1px solid black;
+    background:orange;
+}
+.areYouSureButton {
+    margin-top:50px;
+    font-family:sans-serif;
+    font-size:16px;
+    padding:10px;
+    box-sizing:border-box;
+    border:1px solid black;
+    background:orange;
+}

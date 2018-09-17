@@ -29,7 +29,7 @@ class Events extends Component {
                                     startTime={startTime}
                                     endTime={endTime}
                                     location={location}
-                                    />
+                                />
                             )}
                         </div>
                     </div>

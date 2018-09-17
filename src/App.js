@@ -2,10 +2,25 @@ import React, { Component } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import { events } from './Redux/Constants'
+
 import Action from './Redux/Action'
 import Routes from './Routes/Routes'
 
 class App extends Component {
+    componentDidMount = () => {
+        fetch('http://localhost:1337')
+        .then(data => data.json())
+        .then(data => {
+            if (data) {
+                this.props.Action(data, events)
+            } else {
+                alert('Sorry, something went wrong!')
+            } 
+        })
+        .catch(() => alert('Sorry API down'))
+    }
+
     render() {
         return (
             <BrowserRouter>
