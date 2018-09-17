@@ -13,7 +13,7 @@ class SaveEvents extends Component {
 
     SaveToDatabase = () => {
         const { events } = this.props
-        fetch(`http://localhost:1337/`, {
+        fetch(`https://momentifyapi.herokuapp.com/`, {
             method:'POST',
             body:JSON.stringify(events),
             headers: {

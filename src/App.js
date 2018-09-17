@@ -9,7 +9,7 @@ import Routes from './Routes/Routes'
 
 class App extends Component {
     componentDidMount = () => {
-        fetch('http://localhost:1337')
+        fetch('https://momentifyapi.herokuapp.com/')
         .then(data => data.json())
         .then(data => {
             if (data) {
